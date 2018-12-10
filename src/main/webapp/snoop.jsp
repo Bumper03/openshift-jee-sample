@@ -5,12 +5,12 @@
 	<%@ page import="java.lang.management.*" %>
 	<%@ page import="java.util.*" %>
 
-	<%@ page import java.io.BufferedReader %>
-	<%@ page import java.io.IOException %>
-	<%@ page import java.io.InputStreamReader %>
-	<%@ page import java.net.HttpURLConnection %>
-	<%@ page import java.net.MalformedURLException %>
-	<%@ page import java.net.URL %>
+	<%@ page import="java.io.BufferedReader" %>
+	<%@ page import="java.io.IOException" %>
+	<%@ page import="java.io.InputStreamReader" %>
+	<%@ page import="java.net.HttpURLConnection" %>
+	<%@ page import="java.net.MalformedURLException" %>
+	<%@ page import="java.net.URL" %>
 </HEAD>
 <BODY>
 
