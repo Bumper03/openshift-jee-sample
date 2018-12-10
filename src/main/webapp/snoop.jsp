@@ -4,8 +4,50 @@
 	<%@ page import="javax.servlet.http.HttpUtils,java.util.Enumeration" %>
 	<%@ page import="java.lang.management.*" %>
 	<%@ page import="java.util.*" %>
+
+	<%@ page import java.io.BufferedReader %>
+	<%@ page import java.io.IOException %>
+	<%@ page import java.io.InputStreamReader %>
+	<%@ page import java.net.HttpURLConnection %>
+	<%@ page import java.net.MalformedURLException %>
+	<%@ page import java.net.URL %>
 </HEAD>
 <BODY>
+
+
+<H1>DEMO</H1>
+<h2>Trying to download CET clock</h2>
+<%
+
+try {
+
+	URL url = new URL("http://worldclockapi.com/api/json/cet/now");
+	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	conn.setRequestMethod("GET");
+	conn.setRequestProperty("Accept", "application/json");
+
+	if (conn.getResponseCode() != 200) {
+		throw new RuntimeException("Failed : HTTP error code : " + conn.getResponseCode());
+	}
+
+	BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+
+	String output;
+	out.println("Output from Server .... \n");
+	while ((output = br.readLine()) != null) {
+		out.println(output);
+	}
+	conn.disconnect();
+  } catch (MalformedURLException e) {
+	e.printStackTrace();
+
+  } catch (IOException e) {
+	e.printStackTrace();
+  }
+}
+%> 
+
+
 
 <H1>WebApp JSP Snoop page</H1>
 <img src="images/jbosscorp_logo.png">
