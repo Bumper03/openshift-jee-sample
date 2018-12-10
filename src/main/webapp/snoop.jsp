@@ -38,14 +38,11 @@ try {
 		out.println(output);
 	}
 	conn.disconnect();
-  } catch (MalformedURLException e) {
+} catch (MalformedURLException e) {
 	e.printStackTrace();
 
-  } catch (IOException e) {
+} catch (IOException e) {
 	e.printStackTrace();
-  } finally {
-	  
-  }
 }
 %> 
 
